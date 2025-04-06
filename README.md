@@ -1,4 +1,4 @@
-# LyzrBoost Agent Demo Application
+# LyzrBoost
 
 ## Overview
 LyzrBoost Agent Demo is a powerful demonstration of building agentic applications using the LyzrBoost framework integrated with Google's Gemini API. This application showcases both interactive chat capabilities and structured content generation workflows, making it an ideal starting point for developers looking to build AI-powered applications.

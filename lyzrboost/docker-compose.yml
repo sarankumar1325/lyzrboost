@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  lyzrboost-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - LYZR_API_KEY=sk-default-9wdTatnu1figlN2UilBoBW0yz58wNokO
+    restart: unless-stopped
+    volumes:
+      - ./examples:/app/examples 

@@ -1,0 +1,4 @@
+lyzr>=0.1.0
+lyzrboost>=0.1.0
+pyyaml>=5.4.1
+requests>=2.25.1

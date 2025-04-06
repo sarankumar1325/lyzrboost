@@ -1,0 +1,2 @@
+[console_scripts]
+lyzrboost = lyzrboost.cli.main:main

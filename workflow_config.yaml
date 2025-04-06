@@ -1,0 +1,41 @@
+# Sample workflow configuration for LyzrBoost
+name: "Content Generation Workflow"
+description: "A workflow that generates content on a given topic using multiple agents"
+
+# Define the workflow steps
+steps:
+  - name: "Research"
+    agent_id: "research_agent_id"  # Replace with actual agent ID
+    prompt_template: "Provide key information, facts, and statistics about: {input}"
+    output_key: "research"
+    timeout: 120
+
+  - name: "Write"
+    agent_id: "writing_agent_id"  # Replace with actual agent ID
+    prompt_template: |
+      Create a well-structured article about {input} based on the following research:
+      
+      {research}
+      
+      The article should include an introduction, 3-4 main sections, and a conclusion.
+    output_key: "draft_content"
+    timeout: 180
+
+  - name: "Edit"
+    agent_id: "editing_agent_id"  # Replace with actual agent ID
+    prompt_template: |
+      Please edit and improve the following article about {input}:
+      
+      {draft_content}
+      
+      Focus on:
+      - Improving clarity and flow
+      - Fixing any grammatical or spelling errors
+      - Enhancing the overall readability
+      - Adding appropriate subheadings if needed
+    output_key: "final_content"
+    timeout: 120
+
+# Output configuration
+output_format: "final_only"
+final_output_key: "final_content"

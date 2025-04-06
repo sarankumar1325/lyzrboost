@@ -4,8 +4,10 @@ from google import generativeai as genai
 def generate_lyzrboost_plan():
     """Generate a plan for LyzrBoost package that enhances Lyzr with multi-agent capabilities."""
     
-    # API key handling - use environment variable or fallback to provided key
-    api_key = os.environ.get("GEMINI_API_KEY") or "AIzaSyAA1heyOQ8a2yAwXuOWjGCVLCbpHy5iPYE"
+    # API key handling - use environment variable
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY environment variable not set")
     genai.configure(api_key=api_key)
     
     # Create the model

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Setting up Gemini API key..."
-export GEMINI_API_KEY=AIzaSyAA1heyOQ8a2yAwXuOWjGCVLCbpHy5iPYE
+# Replace YOUR_API_KEY with your actual Gemini API key
+export GEMINI_API_KEY=YOUR_API_KEY
 
 echo ""
 echo "=========================================="

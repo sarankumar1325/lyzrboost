@@ -1,13 +1,18 @@
 import os
 from google import genai
 from google.genai import types
+from google.genai.client import Client
 
 def generate():
-    # Get API key from environment or use provided key
-    api_key = os.environ.get("GEMINI_API_KEY") or "AIzaSyAA1heyOQ8a2yAwXuOWjGCVLCbpHy5iPYE"
-    
-    client = genai.Client(
+    # Get API key from environment
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY environment variable not set")
+
+    # Initialize the client
+    client = Client(
         api_key=api_key,
+        stream=True
     )
 
     model = "gemini-1.5-flash"  # Use 1.5 Flash for faster response

@@ -104,11 +104,10 @@ def setup_gemini_client():
     """
     Set up and return the Gemini API client.
     """
-    # Use the provided API key
-    api_key = "AIzaSyCa3Ag32NQUlkbe5LEwEH67z08uPNT4hYg"
-    
-    # Set the API key in the environment variable
-    os.environ["GEMINI_API_KEY"] = api_key
+    # Use environment variable for API key
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY environment variable not set")
     
     # Configure the Gemini API client
     genai.configure(api_key=api_key)
@@ -375,8 +374,6 @@ def main():
 
     args = parser.parse_args()
 
-    # Use the new API key
-    os.environ["GEMINI_API_KEY"] = "AIzaSyCa3Ag32NQUlkbe5LEwEH67z08uPNT4hYg"
     print("Using Gemini API with model: gemini-2.0-flash")
 
     try:
